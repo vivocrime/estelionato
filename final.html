@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ls — Bio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #090909;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: opacity .8s ease;
+}
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.overlay span {
+  color: #ccc;
+  letter-spacing: .4px;
+}
+
+/* VIDEO */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 1;
+}
+.bg-video.visible {
+  opacity: .35;
+}
+
+/* CONTAINER */
+.container {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transform: scale(.96);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.container.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card {
+  max-width: 520px;
+  width: 100%;
+  background: rgba(20,20,23,.5);
+  backdrop-filter: blur(22px);
+  border-radius: 22px;
+  padding: 42px 32px;
+  border: 1px solid rgba(255,255,255,.12);
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,.45);
+}
+
+/* AVATAR */
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid #666;
+  color: #ccc;
+  font-size: .9rem;
+  margin-bottom: 22px;
+}
+
+/* DISCORD CARD */
+.discord-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+}
+
+.avatar-mini {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.discord-info {
+  text-align: left;
+}
+
+.discord-name {
+  display: flex;
+  align-items: center; /* alinhamento perfeito */
+  gap: 8px;
+  color: #eee;
+  font-size: .95rem; /* username maior */
+  font-weight: 500;
+}
+
+/* BADGE PIG */
+.discord-badge {
+  width: 24px;   /* MAIOR */
+  height: 24px;
+  display: block;
+}
+
+.discord-last {
+  color: #999;
+  font-size: .75rem;
+  margin-top: 2px;
+}
+
+/* SOCIALS */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+}
+
+.social svg {
+  width: 28px;
+  height: 28px;
+  opacity: .9;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.social:hover svg {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* COLORS */
+.tiktok { fill: #e5e5e5; }
+.roblox { fill: #e5e5e5; }
+.spotify { fill: #7df1a8; }
+</style>
+</head>
+
+<body>
+
+<div class="overlay" id="overlay">
+  <span>Click to reveal</span>
+</div>
+
+<video class="bg-video" id="bgVideo" autoplay loop muted playsinline>
+  <source src="https://r2.fakecrime.bio/backgrounds/26471028-996a-4741-b414-23abe0882e68.mp4" type="video/mp4">
+</video>
+
+<div class="container" id="container">
+  <div class="card">
+
+    <img src="https://i.imgur.com/zEGcJ5u.jpeg" class="avatar">
+
+    <h1>Ls</h1>
+    <div class="tag">amo a helena</div>
+
+    <div class="discord-card">
+      <img src="https://i.imgur.com/zEGcJ5u.jpeg" class="avatar-mini">
+      <div class="discord-info">
+        <div class="discord-name">
+          theartofstalking
+          <img class="discord-badge" src="https://i.imgur.com/tocRkSc.png" alt="Pig Badge">
+        </div>
+        <div class="discord-last">last seen 2 hours ago</div>
+      </div>
+    </div>
+
+    <div class="socials">
+
+      <!-- TIKTOK -->
+      <a class="social" href="https://www.tiktok.com/@mitificar" target="_blank">
+        <svg class="tiktok" viewBox="0 0 24 24">
+          <path d="M12.7 2h3.2a5.6 5.6 0 0 0 4.4 4.4v3.3a9 9 0 0 1-4.4-1.2v6.6a6.8 6.8 0 1 1-6.8-6.8c.4 0 .8 0 1.2.1v3.4a3.4 3.4 0 1 0 2.4 3.3V2z"/>
+        </svg>
+      </a>
+
+      <!-- ROBLOX -->
+      <a class="social" href="https://www.roblox.com/pt/users/64165820/profile" target="_blank">
+        <svg class="roblox" viewBox="0 0 256 256">
+          <path d="M64 24L232 64L192 232L24 192L64 24ZM112 112L144 120L136 152L104 144L112 112Z"/>
+        </svg>
+      </a>
+
+      <!-- SPOTIFY (CORRIGIDO) -->
+      <a class="social" href="https://open.spotify.com/user/31kd3xi6hi6tmjzrdzl5cehhtyb4" target="_blank">
+        <svg class="spotify" viewBox="0 0 24 24">
+          <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.5a.6.6 0 0 1-.8.2c-2.2-1.3-5-1.6-8.4-.8a.6.6 0 1 1-.3-1.2c3.7-.9 6.8-.6 9.3.9.3.2.4.6.2.9zm1.1-2.6a.8.8 0 0 1-1.1.3c-2.5-1.5-6.4-2-9.5-1a.8.8 0 1 1-.5-1.6c3.5-1.1 7.9-.6 10.8 1.2.4.2.5.7.3 1.1zm.1-2.8C15 9.3 9.3 9.1 6.7 9.9a1 1 0 1 1-.6-1.9c3-.9 9.2-.7 12.5 1.3a1 1 0 0 1-.9 1.8z"/>
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+const overlay = document.getElementById("overlay");
+const container = document.getElementById("container");
+const video = document.getElementById("bgVideo");
+
+overlay.addEventListener("click", () => {
+  overlay.classList.add("hidden");
+  container.classList.add("visible");
+  video.classList.add("visible");
+
+  video.muted = false;
+  video.volume = 0.5;
+  video.play().catch(() => {});
+});
+</script>
+
+</body>
+</html>
